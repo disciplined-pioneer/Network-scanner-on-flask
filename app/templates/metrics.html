@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="metrics">
+    <h1>Real-time System Metrics</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>CPU Usage (%)</th>
+                <th>Memory Usage (%)</th>
+                <th>Network Sent (MB)</th>
+                <th>Network Recv (MB)</th>
+            </tr>
+        </thead>
+        <tbody id="metrics-table">
+            {% for metric in metrics  %}
+            <tr>
+                <td>{{metric.timestamp}}</td>
+                <td>{{metric.cpu_usage}}</td>
+                <td>{{metric.memory_usage}}</td>
+                <td>{{metric.network_sent}}</td>
+                <td>{{metric.network_recv}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='js/metrics_socket.js') }}"> </script>
+{% endblock  %}
