@@ -54,4 +54,4 @@ def downgrade():
     op.drop_table('system_metrics')
     op.drop_table('interface_types')
     # ### end Alembic commands ###
-  
+    
