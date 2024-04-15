@@ -122,4 +122,4 @@ def sync_database():
     while True:
         sync_interfaces()
         sync_metrics()
-        time.sleep(update_time)      
+        time.sleep(update_time)       
